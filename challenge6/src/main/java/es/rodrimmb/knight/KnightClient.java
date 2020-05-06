@@ -26,10 +26,9 @@ public class KnightClient {
             if(!data.isEmpty() && data.length() < 6) {
                 resp.append(data);
                 resp.append("\n");
-                //System.out.println(data);
+                System.out.println(data);
             }
         }
-        //System.out.println("---");
         return resp.toString();
     }
 
@@ -41,10 +40,9 @@ public class KnightClient {
             if(!data.isEmpty() && data.length() < 6) {
                 resp.append(data);
                 resp.append("\n");
-                //System.out.println(data);
+                System.out.println(data);
             }
         }
-        //System.out.println("---");
         return resp.toString();
     }
 

@@ -25,7 +25,7 @@ public class BoardTest {
         Board board = Board.generateInitialBoard(initialBoard);
         // 2 up 1 right
         String secondBoard = ".#.##\n.#.##\n.#K##\n#..##\n..P##";
-        Board finalBoard = board.updateBoard("2u1r", secondBoard, board);
+        Board finalBoard = board.updateBoard("2u1r", secondBoard);
 
         String solutionBoard = "?.#.##\n?.#.##\n..#K##\n.#..##\n...P##\n.#..#?\n..###?\n";
         assertThat(finalBoard.draw(), is(solutionBoard));
@@ -39,7 +39,7 @@ public class BoardTest {
         Board board = Board.generateInitialBoard(initialBoard);
         // 2 down 1 left
         String secondBoard = "#...P\n#.#..\n..K##\n#####\n#####";
-        Board finalBoard = board.updateBoard("2d1l", secondBoard, board);
+        Board finalBoard = board.updateBoard("2d1l", secondBoard);
 
         String solutionBoard = "?..#.#\n?.#..#\n#...P#\n#.#..#\n..K###\n#####?\n#####?\n";
         assertThat(finalBoard.draw(), is(solutionBoard));
@@ -53,9 +53,9 @@ public class BoardTest {
         Board board = Board.generateInitialBoard(initialBoard);
         // 2 up 1 right
         String firstMove = ".#.##\n.#.##\n.#K##\n#..##\n..P##";
-        Board firstMoveBoard = board.updateBoard("2u1r", firstMove, board);
+        Board firstMoveBoard = board.updateBoard("2u1r", firstMove);
 
-        Board finalBoard = firstMoveBoard.updateBoard("2d1l", initialBoard, firstMoveBoard);
+        Board finalBoard = firstMoveBoard.updateBoard("2d1l", initialBoard);
 
         String solutionBoard = "?.#.##\n?.#.##\n..#.##\n.#..##\n..KP##\n.#..#?\n..###?\n";
         assertThat(finalBoard.draw(), is(solutionBoard));

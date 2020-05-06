@@ -111,38 +111,38 @@ public class Board {
         return cells;
     }
 
-    public Board updateBoard(final String movement, final String newBoardStr, final Board board) {
+    public Board updateBoard(final String movement, final String newBoardStr) {
         int xSize = increaseX(movement);
         int ySize = increaseY(movement);
 
         int valueX = movementX(movement);
         int valueY = movementY(movement);
 
-        int finalX = Math.min(board.getxZero() + valueX, board.getxZero());
-        int finalY = Math.min(board.getyZero() + valueY, board.getyZero());
+        int finalX = Math.min(getxZero() + valueX, getxZero());
+        int finalY = Math.min(getyZero() + valueY, getyZero());
 
-        List<Cell> newCells = obtainCells(board.getxPosition() + valueX, board.getyPosition() + valueY, newBoardStr);
+        List<Cell> newCells = obtainCells(getxPosition() + valueX, getyPosition() + valueY, newBoardStr);
         Cell[][] newBoard = null;
         Board boardFinal = null;
-        if(board.hasAllNewCells(newCells)) {
-            newBoard = board.getBoard();
+        if(hasAllNewCells(newCells)) {
+            newBoard = getBoard();
             boardFinal = new Board(
                     newBoard,
                     getxSize(), getySize(),
                     getxZero(), getyZero(), //Solo cambia cuando va hacia abajo o a la izquierda
-                    board.getxPosition() + valueX, board.getyPosition() + valueY //Cambia siempre
+                    getxPosition() + valueX, getyPosition() + valueY //Cambia siempre
             );
         } else {
-            newBoard = new Cell[board.getxSize() + xSize][board.getySize() + ySize];
+            newBoard = new Cell[getxSize() + xSize][getySize() + ySize];
             boardFinal = new Board(
                     newBoard,
-                    board.getxSize() + xSize, board.getySize() + ySize,
+                    getxSize() + xSize, getySize() + ySize,
                     finalX, finalY, //Solo cambia cuando va hacia abajo o a la izquierda
-                    board.getxPosition() + valueX, board.getyPosition() + valueY //Cambia siempre
+                    getxPosition() + valueX, getyPosition() + valueY //Cambia siempre
             );
         }
 
-        List<Cell> allCells = board.getAllCells();
+        List<Cell> allCells = getAllCells();
         for (final Cell cell : allCells) {
             boardFinal.setCell(cell, cell.getxPosition(), cell.getyPosition());
         }
