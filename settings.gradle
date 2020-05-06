@@ -1,0 +1,8 @@
+rootProject.name = 'tuenti2020'
+include 'challenge1'
+include 'challenge2'
+include 'challenge3'
+include 'challenge4'
+include 'challenge5'
+include 'challenge6'
+
